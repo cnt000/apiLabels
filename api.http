@@ -56,6 +56,6 @@ POST https://afqs3iwavc.execute-api.eu-west-1.amazonaws.com/Prod/writedb HTTP/1.
 content-type: application/json
 
 {
-  "id": "prova",
-  "name": "Grazie,"
+  "id": "recap",
+  "name": "prego,"
 }
