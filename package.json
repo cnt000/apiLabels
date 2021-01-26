@@ -1,0 +1,22 @@
+{
+  "name": "apilabels",
+  "version": "1.0.0",
+  "description": "serverless api for labels",
+  "main": "index.js",
+  "scripts": {
+    "sam:validate": "sam validate -t template.yaml --profile cnt000",
+    "sam:build": "sam build --profile cnt000",
+    "sam:deploy:guided": "sam deploy --guided --profile cnt000",
+    "sam:deploy": "sam deploy --profile cnt000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cnt000/apiLabels.git"
+  },
+  "author": "cnt000",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cnt000/apiLabels/issues"
+  },
+  "homepage": "https://github.com/cnt000/apiLabels#readme"
+}

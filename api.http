@@ -1,18 +1,61 @@
 ###
 
-POST https://o1xkkb9pm4.execute-api.ap-south-1.amazonaws.com/Prod/readdb HTTP/1.1
+POST https://afqs3iwavc.execute-api.eu-west-1.amazonaws.com/Prod/readdb HTTP/1.1
 content-type: application/json
 
 {
-  "id":"2"
+  "id": "prova"
 }
 
 ###
 
-POST https://o1xkkb9pm4.execute-api.ap-south-1.amazonaws.com/Prod/writedb HTTP/1.1
+POST https://afqs3iwavc.execute-api.eu-west-1.amazonaws.com/Prod/readdb HTTP/1.1
 content-type: application/json
 
 {
-  "id":"2",
-  "name":"edo"
+  "id": "recap"
+}
+
+
+###
+
+POST https://afqs3iwavc.execute-api.eu-west-1.amazonaws.com/Prod/writedb HTTP/1.1
+content-type: application/json
+
+{
+  "id": "errors",
+  "nameNotValid": "Il tuo Nome e Cognome non sono validi.",
+  "conditionsNotAccpted": "È necessario accettare le condizioni generali del servizio.",
+  "generic": "Si è verificato un errore, riprovare",
+  "genericAlternate": "Si è verificato un errore.",
+  "contactCustomerSupport": "Si prega di riprovare o di contattare l\"assistenza clienti."
+}
+
+###
+
+POST https://afqs3iwavc.execute-api.eu-west-1.amazonaws.com/Prod/writedb HTTP/1.1
+content-type: application/json
+
+{
+  "id": "recap",
+  "congrats": "Grazie,",
+  "subscriptionIsActive": "il tuo abbonamento è ora attivo!",
+  "yourChoice": "La tua scelta",
+  "contentAvailability": "Contenuti sempre disponibili su PC, tablet e smartphone",
+  "subscriptionType": "Tipologia abbonamento",
+  "automaticRenew": "Offerta a rinnovo automatico disattivabile in ogni momento",
+  "allOffers": "Vedi tutte le offerte",
+  "clickHere": "Continua a leggere",
+  "backToArticle": "per tornare all\"articolo"
+}
+
+
+###
+
+POST https://afqs3iwavc.execute-api.eu-west-1.amazonaws.com/Prod/writedb HTTP/1.1
+content-type: application/json
+
+{
+  "id": "prova",
+  "name": "Grazie,"
 }

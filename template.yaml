@@ -2,17 +2,17 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 
 Resources:
-  myDB:
+  labelsDB:
     Type: AWS::Serverless::SimpleTable
     Properties:
-      TableName: tabmine
+      TableName: italian
       PrimaryKey:
         Name: id
         Type: String
       ProvisionedThroughput:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 5
-        
+
   LambdaWrite:
     Type: AWS::Serverless::Function
     Properties:
@@ -21,14 +21,14 @@ Resources:
       Runtime: nodejs12.x
       Events:
         apiForLambda:
-          Type: Api 
+          Type: Api
           Properties:
             Path: /writedb
             Method: post
       Policies:
         DynamoDBWritePolicy:
-          TableName: !Ref myDB
-            
+          TableName: !Ref labelsDB
+
   LambdaRead:
     Type: AWS::Serverless::Function
     Properties:
@@ -37,10 +37,10 @@ Resources:
       Runtime: nodejs12.x
       Events:
         apiForLambda:
-          Type: Api 
+          Type: Api
           Properties:
             Path: /readdb
             Method: post
       Policies:
         DynamoDBReadPolicy:
-          TableName: !Ref myDB
+          TableName: !Ref labelsDB

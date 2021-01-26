@@ -2,10 +2,10 @@ version = 0.1
 [default]
 [default.deploy]
 [default.deploy.parameters]
-stack_name = "api-app"
-s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-pxzg4w60exfu"
-s3_prefix = "api-app"
-region = "ap-south-1"
+stack_name = "api-labels"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-uyaixhov3k8e"
+s3_prefix = "api-labels"
+region = "eu-west-1"
 profile = "cnt000"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"

@@ -8,7 +8,7 @@ exports.handler = async (event) => {
     var ID = obj.id;
 
     var params = {
-      TableName: 'tabmine',
+      TableName: 'italian',
       Key: {
         id: { S: ID },
       },
