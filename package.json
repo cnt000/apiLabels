@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/cnt000/apiLabels/issues"
   },
-  "homepage": "https://github.com/cnt000/apiLabels#readme"
+  "homepage": "https://github.com/cnt000/apiLabels#readme",
+  "dependencies": {
+    "aws-sdk": "^2.836.0"
+  }
 }
