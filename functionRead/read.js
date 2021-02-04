@@ -6,17 +6,17 @@ exports.handler = async (event) => {
   try {
     const obj = JSON.parse(event.body);
 
-    const { id } = obj;
+    const { id, tableName = 'italian' } = obj;
 
     const params = {
-      TableName: 'italian',
+      TableName: tableName,
       Key: {
         id: { S: id },
       },
     };
 
     data = await ddb.getItem(params).promise();
-    console.log('Item read successfully:', data);
+    console.log('Item read successfully:', JSON.stringify(data));
   } catch (err) {
     console.log(err);
     return err;
