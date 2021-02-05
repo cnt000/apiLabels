@@ -14,8 +14,8 @@ POST https://afqs3iwavc.execute-api.eu-west-1.amazonaws.com/Prod/writedb HTTP/1.
 content-type: application/json
 
 {
-  "id": "recap4",
-  "tableName": "italian",
+  "id": 2,
+  "name": "prova",
   "labels": {
     "congrats": "Grazie,",
     "subscriptionIsActive": "il tuo abbonamento è ora attivo!",
@@ -26,5 +26,22 @@ content-type: application/json
     "allOffers": "Vedi tutte le offerte",
     "clickHere": "Continua a leggere",
     "backToArticle": "per tornare all\"articolo"
+  }
+}
+
+###
+
+POST https://afqs3iwavc.execute-api.eu-west-1.amazonaws.com/Prod/writedb HTTP/1.1
+content-type: application/json
+
+{
+  "id": 5,
+  "name": "mock4",
+  "labels": {
+    "first_name": "Car",
+    "last_name": "Rands",
+    "email": "crands2@vimeo.com",
+    "gender": "Non-binary",
+    "ip_address": "66.85.242.75"
   }
 }
