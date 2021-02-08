@@ -4,9 +4,10 @@ POST https://afqs3iwavc.execute-api.eu-west-1.amazonaws.com/Prod/readdb HTTP/1.1
 content-type: application/json
 
 {
-  "id": "recap4",
-  "tableName": "italian"
+  "id": "4",
+  "name": "prova4"
 }
+
 
 ###
 
@@ -14,8 +15,8 @@ POST https://afqs3iwavc.execute-api.eu-west-1.amazonaws.com/Prod/writedb HTTP/1.
 content-type: application/json
 
 {
-  "id": 2,
-  "name": "prova",
+  "id": "4",
+  "name": "prova4",
   "labels": {
     "congrats": "Grazie,",
     "subscriptionIsActive": "il tuo abbonamento è ora attivo!",
@@ -35,7 +36,7 @@ POST https://afqs3iwavc.execute-api.eu-west-1.amazonaws.com/Prod/writedb HTTP/1.
 content-type: application/json
 
 {
-  "id": 5,
+  "id": "5",
   "name": "mock4",
   "labels": {
     "first_name": "Car",

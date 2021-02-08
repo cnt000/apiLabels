@@ -1,0 +1,37 @@
+{
+  "configurations": [
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "apiLabels:LambdaWrite",
+      "invokeTarget": {
+        "target": "template",
+        "templatePath": "template.yaml",
+        "logicalId": "LambdaWrite"
+      },
+      "lambda": {
+        "payload": {},
+        "environmentVariables": {}
+      }
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "apiLabels:LambdaRead",
+      "invokeTarget": {
+        "target": "template",
+        "templatePath": "template.yaml",
+        "logicalId": "LambdaRead"
+      },
+      "lambda": {
+        "payload": {
+          "body": {
+            "id": "1",
+            "tableName": "Labels"
+          }
+        },
+        "environmentVariables": {}
+      }
+    }
+  ]
+}

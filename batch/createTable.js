@@ -13,7 +13,7 @@ const params = {
     { AttributeName: 'name', KeyType: 'RANGE' }, //Sort key
   ],
   AttributeDefinitions: [
-    { AttributeName: 'id', AttributeType: 'N' },
+    { AttributeName: 'id', AttributeType: 'S' },
     { AttributeName: 'name', AttributeType: 'S' },
   ],
   ProvisionedThroughput: {

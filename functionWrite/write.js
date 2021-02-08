@@ -1,4 +1,6 @@
-const { db } = require('./lib');
+const AWS = require('aws-sdk');
+AWS.config.update({ region: 'eu-west-1' });
+const docClient = new AWS.DynamoDB.DocumentClient({ apiVersion: '2012-08-10' });
 
 exports.handler = async (event) => {
   try {
@@ -15,24 +17,18 @@ exports.handler = async (event) => {
       },
     };
 
-    console.log(
-      `Adding a item in ${table}, name: ${name}, labels: ${JSON.stringify(
-        labels,
-      )}`,
-    );
-
-    const result = await db.insert(params);
+    const result = await docClient.put(params).promise();
     return {
       statusCode: 200,
       body: JSON.stringify({
-        message: `Item entered successfully: ${JSON.stringify(result)}`,
+        message: `Item entered successfully: ${JSON.stringify(params)}`,
       }),
     };
   } catch (err) {
     return {
-      statusCode: 500,
+      statusCode: 200,
       body: JSON.stringify({
-        message: `Error: ${JSON.stringify(err)}`,
+        message: `Item entered successfully: ${JSON.stringify(err)}`,
       }),
     };
   }
