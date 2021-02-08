@@ -6,13 +6,12 @@ exports.handler = async (event) => {
   try {
     const obj = JSON.parse(event.body);
     const table = 'Labels';
-    const { id, name, labels } = obj;
+    const { id, labels } = obj;
 
     const params = {
       TableName: table,
       Item: {
         id: id,
-        name: name,
         labels: labels,
       },
     };
@@ -21,7 +20,7 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify({
-        message: `Item entered successfully: ${JSON.stringify(params)}`,
+        message: `Item entered successfully: ${JSON.stringify(params)} (${result})`,
       }),
     };
   } catch (err) {

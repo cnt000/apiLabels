@@ -4,8 +4,7 @@ POST https://afqs3iwavc.execute-api.eu-west-1.amazonaws.com/Prod/readdb HTTP/1.1
 content-type: application/json
 
 {
-  "id": "4",
-  "name": "prova4"
+  "id": "4"
 }
 
 
@@ -16,7 +15,6 @@ content-type: application/json
 
 {
   "id": "4",
-  "name": "prova4",
   "labels": {
     "congrats": "Grazie,",
     "subscriptionIsActive": "il tuo abbonamento è ora attivo!",

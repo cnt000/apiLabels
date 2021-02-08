@@ -10,11 +10,9 @@ const params = {
   TableName: 'Labels',
   KeySchema: [
     { AttributeName: 'id', KeyType: 'HASH' }, //Partition key
-    { AttributeName: 'name', KeyType: 'RANGE' }, //Sort key
   ],
   AttributeDefinitions: [
     { AttributeName: 'id', AttributeType: 'S' },
-    { AttributeName: 'name', AttributeType: 'S' },
   ],
   ProvisionedThroughput: {
     ReadCapacityUnits: 10,
