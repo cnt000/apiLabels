@@ -16,11 +16,11 @@ exports.handler = async (event) => {
       },
     };
 
-    const result = await docClient.put(params).promise();
+    await docClient.put(params).promise();
     return {
       statusCode: 200,
       body: JSON.stringify({
-        message: `Item entered successfully: ${JSON.stringify(params)} (${result})`,
+        message: `Item entered successfully: ${JSON.stringify(params)}`,
       }),
     };
   } catch (err) {

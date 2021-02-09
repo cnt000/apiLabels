@@ -1,14 +1,12 @@
 const { db } = require('../functionWrite/lib');
 
 const table = 'Labels';
-const id = 1;
 const name = 'prova4';
 
 const params = {
   TableName: table,
   Item: {
     id: id,
-    name: name,
     labels: {
       congrats: 'Grazie a tutti',
       subscriptionIsActive: 'il tuo abbonamento è ora attivo!',
