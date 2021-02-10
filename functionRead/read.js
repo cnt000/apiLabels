@@ -5,7 +5,7 @@ const docClient = new AWS.DynamoDB.DocumentClient({ apiVersion: '2012-08-10' });
 exports.handler = async (event) => {
   let data;
   try {
-    const { id } = JSON.parse(event.body);
+    const id = event.queryStringParameters.id;
     const tableName = 'Labels';
 
     const params = {

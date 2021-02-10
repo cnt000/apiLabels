@@ -23,7 +23,7 @@ Resources:
         apiForLambda:
           Type: Api
           Properties:
-            Path: /writedb
+            Path: /label
             Method: post
       Policies:
         DynamoDBWritePolicy:
@@ -39,8 +39,8 @@ Resources:
         apiForLambda:
           Type: Api
           Properties:
-            Path: /readdb
-            Method: post
+            Path: /label
+            Method: get
       Policies:
         DynamoDBReadPolicy:
           TableName: !Ref labelsDB
