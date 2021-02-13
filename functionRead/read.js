@@ -8,23 +8,32 @@ exports.handler = async (event) => {
     const id = event.queryStringParameters.id;
     const tableName = 'Labels';
 
+    if (!/^\w+$/.test(id)) {
+      throw new Error('Something goes wrong with the parameter');
+    }
+
     const params = {
       TableName: tableName,
       Key: {
-        id: id
+        id: id,
       },
     };
 
     data = await docClient.get(params).promise();
+    if (data.Item) {
+      return {
+        statusCode: 200,
+        body: JSON.stringify({
+          message: data.Item,
+        }),
+      };
+    }
     return {
-      statusCode: 200,
-      body: JSON.stringify({
-        message: data.Item,
-      }),
+      statusCode: 404,
     };
   } catch (err) {
     return {
-      statusCode: 200,
+      statusCode: 500,
       body: JSON.stringify({
         message: err,
       }),
