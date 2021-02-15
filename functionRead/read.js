@@ -8,7 +8,7 @@ exports.handler = async (event) => {
     const id = event.queryStringParameters.id;
     const tableName = 'Labels';
 
-    if (!/^\w+$/.test(id)) {
+    if (!/^[\w\-_]+$/.test(id)) {
       throw new Error('Something goes wrong with the parameter');
     }
 

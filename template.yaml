@@ -5,13 +5,20 @@ Resources:
   labelsDB:
     Type: AWS::Serverless::SimpleTable
     Properties:
-      TableName: italian
+      TableName: Labels
       PrimaryKey:
         Name: id
         Type: String
       ProvisionedThroughput:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 5
+
+  LabelsApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      Auth:
+        ApiKeyRequired: true
 
   LambdaWrite:
     Type: AWS::Serverless::Function
@@ -23,8 +30,11 @@ Resources:
         apiForLambda:
           Type: Api
           Properties:
+            RestApiId: !Ref LabelsApi
             Path: /label
             Method: post
+            Auth:
+              ApiKeyRequired: true
       Policies:
         DynamoDBWritePolicy:
           TableName: !Ref labelsDB
@@ -39,8 +49,11 @@ Resources:
         apiForLambda:
           Type: Api
           Properties:
+            RestApiId: !Ref LabelsApi
             Path: /label
             Method: get
+            Auth:
+              ApiKeyRequired: true
       Policies:
         DynamoDBReadPolicy:
           TableName: !Ref labelsDB

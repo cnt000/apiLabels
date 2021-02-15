@@ -25,9 +25,9 @@ exports.handler = async (event) => {
     };
   } catch (err) {
     return {
-      statusCode: 200,
+      statusCode: 500,
       body: JSON.stringify({
-        message: `Item entered successfully: ${JSON.stringify(err)}`,
+        message: `Error: ${JSON.stringify(err)}`,
       }),
     };
   }
