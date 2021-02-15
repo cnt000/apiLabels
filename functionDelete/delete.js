@@ -8,6 +8,12 @@ exports.handler = async (event) => {
     const id = event.queryStringParameters.id;
     const tableName = 'Labels';
 
+    if(!id) {
+      return {
+        statusCode: 405
+      };
+    }
+
     if (!/^[\w\-_]+$/.test(id)) {
       throw 'Something goes wrong with the parameter id';
     }
@@ -19,12 +25,12 @@ exports.handler = async (event) => {
       },
     };
 
-    data = await docClient.get(params).promise();
-    if (data.Item) {
+    data = await docClient.delete(params).promise();
+    if (data) {
       return {
         statusCode: 200,
         body: JSON.stringify({
-          message: data.Item,
+          message: data,
         }),
       };
     }

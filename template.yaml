@@ -57,3 +57,22 @@ Resources:
       Policies:
         DynamoDBReadPolicy:
           TableName: !Ref labelsDB
+
+  LambdaDelete:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: functionDelete/
+      Handler: delete.handler
+      Runtime: nodejs12.x
+      Events:
+        apiForLambda:
+          Type: Api
+          Properties:
+            RestApiId: !Ref LabelsApi
+            Path: /label
+            Method: delete
+            Auth:
+              ApiKeyRequired: true
+      Policies:
+        DynamoDBWritePolicy:
+          TableName: !Ref labelsDB
