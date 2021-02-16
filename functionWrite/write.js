@@ -8,7 +8,27 @@ exports.handler = async (event) => {
     const table = 'Labels';
     const { id, labels } = obj;
 
-    const params = {
+    if (!/^[\w\-_]+$/.test(id)) {
+      throw 'Something goes wrong with the parameter id';
+    }
+
+    const paramsGet = {
+      TableName: table,
+      Key: {
+        id: id,
+      },
+    };
+    const dataGet = await docClient.get(paramsGet).promise();
+    if (dataGet.Item) {
+      return {
+        statusCode: 409, // conflict
+        body: JSON.stringify({
+          message: `Item ${id} already exists`,
+        }),
+      };
+    }
+
+    const paramsPost = {
       TableName: table,
       Item: {
         id: id,
@@ -16,11 +36,12 @@ exports.handler = async (event) => {
       },
     };
 
-    await docClient.put(params).promise();
+    await docClient.put(paramsPost).promise();
     return {
-      statusCode: 200,
+      statusCode: 201,
+      // header: `Location: /label/${id}`,
       body: JSON.stringify({
-        message: `Item entered successfully: ${JSON.stringify(params)}`,
+        message: `Item entered successfully: /label/${id}`,
       }),
     };
   } catch (err) {
