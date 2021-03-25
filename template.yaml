@@ -95,3 +95,22 @@ Resources:
       Policies:
         DynamoDBWritePolicy:
           TableName: !Ref labelsDB
+
+  LambdaScan:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: functionScan/
+      Handler: scan.handler
+      Runtime: nodejs12.x
+      Events:
+        apiForLambda:
+          Type: Api
+          Properties:
+            RestApiId: !Ref LabelsApi
+            Path: /scan
+            Method: get
+            Auth:
+              ApiKeyRequired: true
+      Policies:
+        DynamoDBReadPolicy:
+          TableName: !Ref labelsDB
